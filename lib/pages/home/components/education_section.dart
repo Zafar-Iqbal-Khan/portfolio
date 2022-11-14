@@ -8,23 +8,23 @@ import 'package:web_portfolio/utils/screen_helper.dart';
 final List<Education> educationList = [
   Education(
     description: "Working as a FullStack Developer",
-    linkName: "www.flutterpanda.com",
+    linkName: "",
     period: "2021 - PRESENT",
   ),
   Education(
     description:
         "Bachelors in Technology - Computer Science From SSM College Of Engineering And Technology , ParihasPora Pattan,Kashmir",
-    linkName: "www.flutterpanda.com",
+    linkName: "",
     period: "2017 - 2021",
   ),
   Education(
     description: "11TH-12TH From Govt. Higher Secondary School Tral,Kashmir",
-    linkName: "www.flutterpanda.com",
+    linkName: "",
     period: "2013 - 2015",
   ),
   Education(
     description: "9TH-10TH Class From Hajahad Public School Awantipora,Kashmir",
-    linkName: "www.flutterpanda.com",
+    linkName: "",
     period: "2011 - 2013",
   ),
 ];

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_portfolio/models/apps_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
 
-class IosAppAd extends StatelessWidget {
+class IosAppAd extends StatefulWidget {
+  @override
+  State<IosAppAd> createState() => _IosAppAdState();
+}
+
+class _IosAppAdState extends State<IosAppAd> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,6 +21,68 @@ class IosAppAd extends StatelessWidget {
       ),
     );
   }
+
+  var apps = [
+    AppModel(
+      appImage: "assets/sneaker.png",
+      appName: "SNEAKERS\nAPP",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+    // AppModel(
+    //   appImage: "assets/ios.png",
+    //   appName: "UNIVERSAL\nSMART HOME APP",
+    //   appDesc:
+    //       "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+    //   appType: "IOS APP",
+    // ),
+    AppModel(
+      appImage: "assets/draw-3.png",
+      appName: "DRAWING\nBOARD",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+    AppModel(
+      appImage: "assets/portfolio.png",
+      appName: "MY\nPORTFOLIO",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID/WEB APP",
+    ),
+
+    AppModel(
+      appImage: "assets/jobfinder.png",
+      appName: "JOB\nFINDER",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+    AppModel(
+      appImage: "assets/bank.png",
+      appName: "BANKING\nAPP",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+    AppModel(
+      appImage: "assets/travel.png",
+      appName: "TRAVEL\nAPP",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+    AppModel(
+      appImage: "assets/guitar.png",
+      appName: "FENDER",
+      appDesc:
+          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+      appType: "IOS/ANDROID APP",
+    ),
+  ];
+
+  int appIndex = 0;
 
   Widget _buildUi(double width) {
     return Center(
@@ -35,7 +102,9 @@ class IosAppAd extends StatelessWidget {
                   Expanded(
                     flex: constraints.maxWidth > 720.0 ? 1 : 0,
                     child: Image.asset(
-                      "assets/ios.png",
+                      // "assets/ios.png",
+                      apps[appIndex].appImage,
+                      height: 500,
                       // Set width for image on smaller screen
                       width: constraints.maxWidth > 720.0 ? null : 350.0,
                     ),
@@ -47,7 +116,8 @@ class IosAppAd extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "IOS APP",
+                          apps[appIndex].appType,
+                          // "IOS APP",
                           style: GoogleFonts.oswald(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.w900,
@@ -58,7 +128,8 @@ class IosAppAd extends StatelessWidget {
                           height: 15.0,
                         ),
                         Text(
-                          "UNIVERSAL\nSMART HOME APP",
+                          // "UNIVERSAL\nSMART HOME APP",
+                          apps[appIndex].appName,
                           style: GoogleFonts.oswald(
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
@@ -70,7 +141,8 @@ class IosAppAd extends StatelessWidget {
                           height: 10.0,
                         ),
                         Text(
-                          "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
+                          apps[appIndex].appDesc,
+                          // "This is a random text about the project, I should have used the regular lorem ipsum text, but I am too lazy to search for that. This should be long enough",
                           style: TextStyle(
                             color: kCaptionColor,
                             height: 1.5,
@@ -111,32 +183,81 @@ class IosAppAd extends StatelessWidget {
                             SizedBox(
                               width: 10.0,
                             ),
-                            MouseRegion(
-                              cursor: SystemMouseCursors.click,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: kPrimaryColor,
-                                  ),
-                                ),
-                                height: 48.0,
-                                padding: EdgeInsets.symmetric(horizontal: 28.0),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Center(
-                                    child: Text(
-                                      "NEXT APP",
-                                      style: TextStyle(
-                                        color: kPrimaryColor,
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.bold,
+                            appIndex + 1 != apps.length
+                                ? MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: kPrimaryColor,
+                                        ),
+                                      ),
+                                      height: 48.0,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 28.0),
+                                      child: TextButton(
+                                        onPressed: () {
+                                          if (apps.length > appIndex + 1) {
+                                            setState(() {
+                                              appIndex++;
+                                            });
+                                          }
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "NEXT APP",
+                                            style: TextStyle(
+                                              color: kPrimaryColor,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                            )
+                                  )
+                                : SizedBox.shrink(),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            appIndex > 0
+                                ? MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: kPrimaryColor,
+                                        ),
+                                      ),
+                                      height: 48.0,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 28.0),
+                                      child: TextButton(
+                                        onPressed: () {
+                                          if (appIndex > 0) {
+                                            setState(() {
+                                              appIndex--;
+                                            });
+                                          }
+                                        },
+                                        child: Center(
+                                          child: Text(
+                                            "PREVIOUS APP",
+                                            style: TextStyle(
+                                              color: kPrimaryColor,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : SizedBox.shrink(),
                           ],
                         )
                       ],
