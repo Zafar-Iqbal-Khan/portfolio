@@ -183,81 +183,45 @@ class _IosAppAdState extends State<IosAppAd> {
                             SizedBox(
                               width: 10.0,
                             ),
-                            appIndex + 1 != apps.length
-                                ? MouseRegion(
-                                    cursor: SystemMouseCursors.click,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: kPrimaryColor,
-                                        ),
-                                      ),
-                                      height: 48.0,
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 28.0),
-                                      child: TextButton(
-                                        onPressed: () {
-                                          if (apps.length > appIndex + 1) {
-                                            setState(() {
-                                              appIndex++;
-                                            });
-                                          }
-                                        },
-                                        child: Center(
-                                          child: Text(
-                                            "NEXT APP",
-                                            style: TextStyle(
-                                              color: kPrimaryColor,
-                                              fontSize: 13.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                                height: 48.0,
+                                padding: EdgeInsets.symmetric(horizontal: 28.0),
+                                child: TextButton(
+                                  onPressed: () {
+                                    if (apps.length > appIndex + 1) {
+                                      setState(() {
+                                        appIndex++;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        appIndex = 0;
+                                      });
+                                    }
+                                  },
+                                  child: Center(
+                                    child: Text(
+                                      "NEXT APP",
+                                      style: TextStyle(
+                                        color: kPrimaryColor,
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  )
-                                : SizedBox.shrink(),
+                                  ),
+                                ),
+                              ),
+                            ),
                             SizedBox(
                               width: 10.0,
                             ),
-                            appIndex > 0
-                                ? MouseRegion(
-                                    cursor: SystemMouseCursors.click,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        border: Border.all(
-                                          color: kPrimaryColor,
-                                        ),
-                                      ),
-                                      height: 48.0,
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 28.0),
-                                      child: TextButton(
-                                        onPressed: () {
-                                          if (appIndex > 0) {
-                                            setState(() {
-                                              appIndex--;
-                                            });
-                                          }
-                                        },
-                                        child: Center(
-                                          child: Text(
-                                            "PREVIOUS APP",
-                                            style: TextStyle(
-                                              color: kPrimaryColor,
-                                              fontSize: 13.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                : SizedBox.shrink(),
                           ],
                         )
                       ],
